@@ -20,6 +20,9 @@ type Params struct {
 	// the Ingress Controller service. This allows us to migrate providers to
 	// chart-operator independently.
 	DisableIngressControllerService bool
+	// EnableLocalDNS flag. When set installs local dns daemon set as a cache dns
+	// service for kubelet.
+	EnableLocalDNS bool
 	// Hyperkube allows to pass extra `docker run` and `command` arguments
 	// to hyperkube image commands. This allows to e.g. add cloud provider
 	// extensions.

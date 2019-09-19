@@ -422,6 +422,14 @@ storage:
       contents:
         source: "data:text/plain;charset=utf-8;base64,{{  index .Files "k8s-resource/kube-proxy-ds.yaml" }}"
 
+    {{- if .EnableLocalDNS }}
+    - path: /srv/local-dns.yaml
+      filesystem: root
+      mode: 0644
+      contents:
+        source: "data:text/plain;charset=utf-8;base64,{{  index .Files "k8s-resource/local-dns.yaml" }}"
+    {{- end }}
+
     - path: /srv/rbac_bindings.yaml
       filesystem: root
       mode: 0644

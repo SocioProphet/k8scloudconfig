@@ -149,6 +149,10 @@ MANIFESTS="${MANIFESTS} {{ . }}"
 {{ if not .DisableIngressControllerService -}}
 MANIFESTS="${MANIFESTS} ingress-controller-svc.yaml"
 {{ end -}}
+{{ if .EnableLocalDNS -}}
+# install local-dns
+MANIFESTS="${MANIFESTS} local-dns.yaml"
+{{ end -}}
 
 for manifest in $MANIFESTS
 do
